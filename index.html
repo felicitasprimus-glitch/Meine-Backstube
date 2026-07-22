@@ -425,12 +425,13 @@
   </div></div>
 
   <div class="view" id="view-starter"><div class="inner">
-    <button class="back" onclick="go('home')">← Zurück</button>
-    <div class="area-intro">
-      <div class="area-ic"><svg><use href="#i-jar"/></svg></div>
-      <h2 style="margin-top:0">Starter-Tagebuch</h2>
-      <p class="desc" style="margin:12px auto 0;max-width:32ch">Dein Anstellgut im Blick — füttern, beobachten, retten, Tag für Tag.</p>
-      <div class="area-feats"><div class="area-feat"><div class="fic">🍽️</div><div class="ftx"><b>Fütterungsplan</b> mit Erinnerungen und Verlauf</div></div><div class="area-feat"><div class="fic">📈</div><div class="ftx"><b>Aktivitäts-Check</b>: Peak erkennen per Schwimmtest</div></div><div class="area-feat"><div class="fic">🆘</div><div class="ftx"><b>SOS-Hilfe</b>, wenn dein Starter schwächelt</div></div><div class="area-feat"><div class="fic">📔</div><div class="ftx"><b>Back-Notizen</b> zu jedem Brot</div></div></div>
+    <div class="lib-top">
+      <button class="back" onclick="go('home')">← Zurück</button>
+      <span class="lib-title">Starter-Tagebuch</span>
+      <a class="lib-full" href="https://sauer-starter.vercel.app/" target="_blank" rel="noopener">Vollbild</a>
+    </div>
+    <div class="lib-host" id="host-starter"></div>
+  </div></div><div class="area-feat"><div class="fic">📈</div><div class="ftx"><b>Aktivitäts-Check</b>: Peak erkennen per Schwimmtest</div></div><div class="area-feat"><div class="fic">🆘</div><div class="ftx"><b>SOS-Hilfe</b>, wenn dein Starter schwächelt</div></div><div class="area-feat"><div class="fic">📔</div><div class="ftx"><b>Back-Notizen</b> zu jedem Brot</div></div></div>
       <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus sauer-starter</div>
     </div>
   </div></div>
@@ -3414,6 +3415,7 @@ renderAll();
   function go(name){
     if(premiumViews.indexOf(name)!==-1 && !unlocked){ openModal(); return; }
     if(name==='fehlerfinder'){ setTimeout(ffLoad, 20); }
+    if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://sauer-starter.vercel.app/" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
     if(name==='brotwerkstatt'){ setTimeout(function(){ bwLoad('hydration'); }, 30); }
     if(name==='bibliothek'){ var lh=document.getElementById('host-bibliothek'); if(lh && !lh.dataset.loaded){ lh.innerHTML='<iframe title="Wissensbibliothek" src="https://sauerteig-wissen.netlify.app/" allow="clipboard-write"></iframe>'; lh.dataset.loaded="1"; } }
     var views=document.querySelectorAll(".view");

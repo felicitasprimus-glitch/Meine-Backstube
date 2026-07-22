@@ -1,0 +1,17 @@
+{
+  "name": "Sauerteig-Wissensbibliothek – Sauer macht krustig",
+  "short_name": "Sauerteig-Bibliothek",
+  "description": "Das komplette Sauerteig-Wissen von Sauer macht krustig – als Buch blättern, lesen und offline nutzen.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FBF6EF",
+  "theme_color": "#7C3E50",
+  "lang": "de",
+  "icons": [
+    { "src": "icon-192-v2.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-v2.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable-v2.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

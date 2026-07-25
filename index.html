@@ -437,12 +437,13 @@
   </div></div>
 
   <div class="view" id="view-rezepte"><div class="inner">
-    <button class="back" onclick="go('home')">← Zurück</button>
-    <div class="area-intro">
-      <div class="area-ic"><svg><use href="#i-bread"/></svg></div>
-      <h2 style="margin-top:0">Rezeptsammlung</h2>
-      <p class="desc" style="margin:12px auto 0;max-width:32ch">186+ erprobte Stoneware-Rezepte — vom Ofenmeister bis zur Ofenhexe.</p>
-      <div class="area-feats"><div class="area-feat"><div class="fic">🔎</div><div class="ftx"><b>Suche &amp; Filter</b> nach Form und Kategorie</div></div><div class="area-feat"><div class="fic">🍞</div><div class="ftx"><b>186+ Rezepte</b> für deine Pampered-Chef-Formen</div></div><div class="area-feat"><div class="fic">⭐</div><div class="ftx"><b>Favoriten</b> speichern und schnell wiederfinden</div></div><div class="area-feat"><div class="fic">📖</div><div class="ftx">Schritt-für-Schritt, anfängerfreundlich</div></div></div>
+    <div class="lib-top">
+      <button class="back" onclick="go('home')">← Zurück</button>
+      <span class="lib-title">Rezeptsammlung</span>
+      <a class="lib-full" href="https://stonewareapp.vercel.app/" target="_blank" rel="noopener">Vollbild</a>
+    </div>
+    <div class="lib-host" id="host-rezepte"></div>
+  </div></div><div class="area-feat"><div class="fic">🍞</div><div class="ftx"><b>186+ Rezepte</b> für deine Pampered-Chef-Formen</div></div><div class="area-feat"><div class="fic">⭐</div><div class="ftx"><b>Favoriten</b> speichern und schnell wiederfinden</div></div><div class="area-feat"><div class="fic">📖</div><div class="ftx">Schritt-für-Schritt, anfängerfreundlich</div></div></div>
       <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus Stoneware App</div>
     </div>
   </div></div>
@@ -3415,6 +3416,7 @@ renderAll();
   function go(name){
     if(premiumViews.indexOf(name)!==-1 && !unlocked){ openModal(); return; }
     if(name==='fehlerfinder'){ setTimeout(ffLoad, 20); }
+    if(name==='rezepte'){ setTimeout(rzLoad, 20); }
     if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://sauer-starter.vercel.app/login" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
     if(name==='brotwerkstatt'){ setTimeout(function(){ bwLoad('hydration'); }, 30); }
     if(name==='bibliothek'){ var lh=document.getElementById('host-bibliothek'); if(lh && !lh.dataset.loaded){ lh.innerHTML='<iframe title="Wissensbibliothek" src="https://sauerteig-wissen.netlify.app/" allow="clipboard-write"></iframe>'; lh.dataset.loaded="1"; } }
@@ -3637,6 +3639,15 @@ renderAll();
       ifr.title="Fehlerfinder";
       ifr.src="data:text/html;charset=utf-8;base64,"+FF_ORIG_B64;
       h.appendChild(ifr); h.dataset.loaded="1";
+    }
+  }
+
+
+  function rzLoad(){
+    var h=document.getElementById("host-rezepte");
+    if(h && !h.dataset.loaded){
+      h.innerHTML='<iframe title="Rezeptsammlung" src="https://stonewareapp.vercel.app/" allow="clipboard-write; camera"></iframe>';
+      h.dataset.loaded="1";
     }
   }
 

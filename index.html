@@ -3415,7 +3415,7 @@ renderAll();
   function go(name){
     if(premiumViews.indexOf(name)!==-1 && !unlocked){ openModal(); return; }
     if(name==='fehlerfinder'){ setTimeout(ffLoad, 20); }
-    if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://sauer-starter.vercel.app/" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
+    if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://sauer-starter.vercel.app/login" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
     if(name==='brotwerkstatt'){ setTimeout(function(){ bwLoad('hydration'); }, 30); }
     if(name==='bibliothek'){ var lh=document.getElementById('host-bibliothek'); if(lh && !lh.dataset.loaded){ lh.innerHTML='<iframe title="Wissensbibliothek" src="https://sauerteig-wissen.netlify.app/" allow="clipboard-write"></iframe>'; lh.dataset.loaded="1"; } }
     var views=document.querySelectorAll(".view");

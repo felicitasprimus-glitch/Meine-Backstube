@@ -452,13 +452,12 @@
     <div class="lib-top">
       <button class="back" onclick="go('home')">← Zurück</button>
       <span class="lib-title">Starter-Tagebuch</span>
-      <a class="lib-full" href="https://sauer-starter.vercel.app/" target="_blank" rel="noopener">Vollbild</a>
+      <a class="lib-full" href="https://starter.sauermachtkrustig.de/" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-starter"></div>
-  </div></div><div class="area-feat"><div class="fic">📈</div><div class="ftx"><b>Aktivitäts-Check</b>: Peak erkennen per Schwimmtest</div></div><div class="area-feat"><div class="fic">🆘</div><div class="ftx"><b>SOS-Hilfe</b>, wenn dein Starter schwächelt</div></div><div class="area-feat"><div class="fic">📔</div><div class="ftx"><b>Back-Notizen</b> zu jedem Brot</div></div></div>
-      <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus sauer-starter</div>
-    </div>
   </div></div>
+
+  
 
   <div class="view" id="view-rezepte"><div class="inner">
     <div class="lib-top">
@@ -467,10 +466,9 @@
       <a class="lib-full" href="https://stonewareapp.vercel.app/" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-rezepte"></div>
-  </div></div><div class="area-feat"><div class="fic">🍞</div><div class="ftx"><b>186+ Rezepte</b> für deine Pampered-Chef-Formen</div></div><div class="area-feat"><div class="fic">⭐</div><div class="ftx"><b>Favoriten</b> speichern und schnell wiederfinden</div></div><div class="area-feat"><div class="fic">📖</div><div class="ftx">Schritt-für-Schritt, anfängerfreundlich</div></div></div>
-      <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus Stoneware App</div>
-    </div>
   </div></div>
+
+  
 
   <div class="view" id="view-brotwerkstatt"><div class="inner">
     <div class="bw-top">
@@ -3370,30 +3368,30 @@ renderAll();
       <a class="lib-full" href="https://sauerteig-wissen.netlify.app/" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-bibliothek"></div>
-  </div></div><div class="area-feat"><div class="fic">🔖</div><div class="ftx"><b>3D-Blätterfunktion</b> wie ein echtes Buch</div></div><div class="area-feat"><div class="fic">🔍</div><div class="ftx"><b>Volltextsuche</b> über alle Kapitel</div></div><div class="area-feat"><div class="fic">📶</div><div class="ftx"><b>Offline</b> verfügbar, überall lesbar</div></div></div>
-      <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus Wissensbibliothek</div>
-    </div>
   </div></div>
+
+  
 
   <div class="view" id="view-community"><div class="inner">
     <div class="lib-top">
       <button class="back" onclick="go('home')">← Zurück</button>
       <span class="lib-title">Community</span>
-      <a class="lib-full" href="https://sauer-starter.vercel.app/community" target="_blank" rel="noopener">Vollbild</a>
+      <a class="lib-full" href="https://starter.sauermachtkrustig.de/community" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-community"></div>
   </div></div>
+
+  
   <div class="view" id="view-krume"><div class="inner">
     <div class="lib-top">
       <button class="back" onclick="go('home')">← Zurück</button>
       <span class="lib-title">Krume analysieren</span>
-      <a class="lib-full" href="https://sauer-starter.vercel.app/krume" target="_blank" rel="noopener">Vollbild</a>
+      <a class="lib-full" href="https://starter.sauermachtkrustig.de/krume" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-krume"></div>
-  </div></div><div class="area-feat"><div class="fic">💬</div><div class="ftx"><b>Fragen stellen</b> und Antworten bekommen</div></div><div class="area-feat"><div class="fic">🤝</div><div class="ftx"><b>Gemeinsame Back-Aktionen</b> und Challenges</div></div><div class="area-feat"><div class="fic">🔒</div><div class="ftx">Sicherer Raum nur für Mitglieder</div></div></div>
-      <div class="area-badge"><svg><use href="#i-crown"/></svg>Premium · aus sauer-starter</div>
-    </div>
   </div></div>
+
+  
 
   <div class="view" id="view-fehlerfinder"><div class="inner">
     <div class="lib-top">
@@ -3449,10 +3447,10 @@ renderAll();
   function go(name){
     if(premiumViews.indexOf(name)!==-1 && !unlocked){ openModal(); return; }
     if(name==='fehlerfinder'){ setTimeout(ffLoad, 20); }
-    if(name==='krume'){ var kh=document.getElementById('host-krume'); if(kh && !kh.dataset.loaded){ kh.innerHTML='<iframe title="Krume analysieren" src="https://sauer-starter.vercel.app/krume" allow="clipboard-write; camera"></iframe>'; kh.dataset.loaded="1"; } }
-    if(name==='community'){ var ch=document.getElementById('host-community'); if(ch && !ch.dataset.loaded){ ch.innerHTML='<iframe title="Community" src="https://sauer-starter.vercel.app/community" allow="clipboard-write; camera"></iframe>'; ch.dataset.loaded="1"; } }
+    if(name==='krume'){ var kh=document.getElementById('host-krume'); if(kh && !kh.dataset.loaded){ kh.innerHTML='<iframe title="Krume analysieren" src="https://starter.sauermachtkrustig.de/krume" allow="clipboard-write; camera"></iframe>'; kh.dataset.loaded="1"; } }
+    if(name==='community'){ var ch=document.getElementById('host-community'); if(ch && !ch.dataset.loaded){ ch.innerHTML='<iframe title="Community" src="https://starter.sauermachtkrustig.de/community" allow="clipboard-write; camera"></iframe>'; ch.dataset.loaded="1"; } }
     if(name==='rezepte'){ setTimeout(rzLoad, 20); }
-    if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://sauer-starter.vercel.app/login" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
+    if(name==='starter'){ var sh=document.getElementById('host-starter'); if(sh && !sh.dataset.loaded){ sh.innerHTML='<iframe title="Starter-Tagebuch" src="https://starter.sauermachtkrustig.de/login" allow="clipboard-write; camera"></iframe>'; sh.dataset.loaded="1"; } }
     if(name==='brotwerkstatt'){ setTimeout(function(){ bwLoad('hydration'); }, 30); }
     if(name==='bibliothek'){ var lh=document.getElementById('host-bibliothek'); if(lh && !lh.dataset.loaded){ lh.innerHTML='<iframe title="Wissensbibliothek" src="https://sauerteig-wissen.netlify.app/" allow="clipboard-write"></iframe>'; lh.dataset.loaded="1"; } }
     var views=document.querySelectorAll(".view");

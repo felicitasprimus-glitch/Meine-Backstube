@@ -3484,7 +3484,7 @@ renderAll();
   function redeem(){
     var v=document.getElementById("codeInput").value.trim().toUpperCase();
     var m=document.getElementById("codeMsg");
-    if(v===DEMO_CODE){unlocked=true;document.body.classList.remove("locked");try{localStorage.setItem("smk-unlocked","1");}catch(e){}syncProfilStatus();m.className="msg ok";m.textContent="Willkommen in deiner Backstube!";setTimeout(closeModal,1200);}
+    if(v===DEMO_CODE){unlocked=true;document.body.classList.remove("locked");try{localStorage.setItem("smk-unlocked","1");}catch(e){}try{document.cookie="smk_unlocked=1; max-age=31536000; path=/; SameSite=Lax";}catch(e){}syncProfilStatus();m.className="msg ok";m.textContent="Willkommen in deiner Backstube!";setTimeout(closeModal,1200);}
     else{m.className="msg err";m.textContent="Dieser Code ist leider nicht gültig.";}
   }
   function fakeBuy(){var m=document.getElementById("codeMsg");m.className="msg ok";m.textContent="Hier startet später der Kauf (Stripe oder In-App-Kauf).";}
@@ -3684,9 +3684,12 @@ renderAll();
   }
 
 
+  function smkHasCookie(){ try{ return document.cookie.indexOf("smk_unlocked=1")!==-1; }catch(e){ return false; } }
   (function initUnlock(){
     try{
-      if(localStorage.getItem("smk-unlocked")==="1"){
+      var stored=false;
+      try{ stored = localStorage.getItem("smk-unlocked")==="1"; }catch(e){}
+      if(stored || smkHasCookie()){
         unlocked=true;
         document.body.classList.remove("locked");
         syncProfilStatus();
@@ -3699,6 +3702,7 @@ renderAll();
     unlocked=false;
     document.body.classList.add("locked");
     try{ localStorage.removeItem("smk-unlocked"); }catch(e){}
+    try{ document.cookie="smk_unlocked=; max-age=0; path=/"; }catch(e){}
     syncProfilStatus();
   }
 

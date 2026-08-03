@@ -445,9 +445,6 @@
       </div>
     </div>
 
-    <div class="smk-starter-card">
-      <iframe title="Anstellgut-Status" src="https://starter.sauermachtkrustig.de/widget/starter" scrolling="no"></iframe>
-    </div>
     <div id="smkFeedReminder" class="smk-feed">
       <div class="smk-feed-main" onclick="go('starter')">
         <span class="smk-feed-ic">🥄</span>
@@ -4796,7 +4793,7 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
     var html='<div class="smk-ab-top"><span class="smk-ab-dot"></span><span class="smk-ab-name">'+smkEsc(data.name||'Backvorgang')+'</span><button class="smk-ab-x" type="button" onclick="smkClearActive(event)">Fertig</button></div>';
     var head=cur||next, headLabel=cur?'Jetzt':'Startet gleich';
     if(head){ html+='<div class="smk-ab-now"><span class="smk-ab-ic">'+(head.icon||'\uD83C\uDF5E')+'</span><div><small>'+headLabel+'</small><b>'+smkEsc(head.title)+'</b></div></div>'; }
-    if(next){ var mins=Math.round((next.time-now)/60000); var when= mins<=0?'jetzt':(mins<60?('in '+mins+' Min'):('in '+Math.floor(mins/60)+' Std '+(mins%60)+' Min')); html+='<div class="smk-ab-next"><span>Naechster: '+smkEsc(next.title)+'</span><b>'+when+'</b></div>'; }
+    if(next){ var mins=Math.round((next.time-now)/60000); var when= mins<=0?'jetzt':(mins<60?('in '+mins+' Min'):('in '+Math.floor(mins/60)+' Std '+(mins%60)+' Min')); html+='<div class="smk-ab-next"><span>Nächster: '+smkEsc(next.title)+'</span><b>'+when+'</b></div>'; }
     else if(done){ html+='<div class="smk-ab-next"><span>Alle Schritte erledigt</span><b>\uD83C\uDF89</b></div>'; }
     el.innerHTML='<div class="smk-ab-card" onclick="goRechner(\'brotbackplaner\')">'+html+'</div>';
     el.style.display='block';

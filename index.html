@@ -24,9 +24,9 @@
   html{scroll-behavior:smooth;}
   body{font-family:'Poppins',sans-serif;background:linear-gradient(175deg,var(--bg-top),var(--bg-bottom)) fixed;color:var(--ink);min-height:100vh;padding-bottom:112px;}
   .app{max-width:480px;margin:0 auto;}
-  .rv{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.22,.9,.3,1) forwards;}
+  .rv{opacity:1;transform:none;}
   .rv.d1{animation-delay:.08s;}.rv.d2{animation-delay:.16s;}.rv.d3{animation-delay:.24s;}.rv.d4{animation-delay:.32s;}.rv.d5{animation-delay:.4s;}
-  @keyframes rise{to{opacity:1;transform:none;}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 
   /* HERO */
   .hero{position:relative;margin:14px 18px 0;border-radius:28px;overflow:hidden;min-height:340px;background:#E7C6CF;box-shadow:0 20px 44px -18px rgba(142,84,104,.45);display:flex;align-items:flex-end;}
@@ -325,6 +325,61 @@
 
   body.locked .pf-reset{display:none;}
   body:not(.locked) .pf-unlock{display:none;}
+
+  .rech-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+  .rech-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:1px solid rgba(154,111,130,.18);border-radius:18px;padding:16px 16px;cursor:pointer;box-shadow:0 6px 18px -12px rgba(124,62,80,.35);transition:transform .12s ease, box-shadow .12s ease;}
+  .rech-item:active{transform:scale(.99)}
+  .rech-ic{font-size:22px;flex:0 0 auto;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(201,143,160,.14);border-radius:13px}
+  .rech-tx{flex:1;display:flex;flex-direction:column;gap:2px}
+  .rech-tx b{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;color:var(--wine,#6E3348);font-weight:600;line-height:1.1}
+  .rech-tx small{font-size:12.5px;color:#8a6f7a}
+  .rech-ar{font-size:26px;color:#c9a3b3;flex:0 0 auto}
+
+  .calc-wrap{max-width:520px;margin:0 auto;padding:6px 16px 30px}
+  .calc-intro{text-align:center;margin-bottom:20px}
+  .calc-emoji{font-size:32px;margin-bottom:6px}
+  .calc-h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:#5A3F56;margin:0 0 8px;font-weight:600}
+  .calc-sub{color:#8a6f7a;font-size:14px;line-height:1.5;margin:0 auto;max-width:340px}
+  .calc-card{background:#fff;border:1px solid rgba(154,111,130,.16);border-radius:20px;padding:16px 18px 18px;box-shadow:0 8px 24px -16px rgba(124,62,80,.4)}
+  .calc-section-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;color:#7C3E50;font-weight:600;margin-bottom:10px}
+  .calc-lb{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;color:#4A2F3A;font-weight:500;padding:9px 0}
+  .calc-lb + .calc-lb{border-top:1px solid rgba(154,111,130,.1)}
+  .calc-inwrap{display:inline-flex;align-items:center;gap:6px;background:#FBF6EF;border:1px solid rgba(154,111,130,.22);border-radius:12px;padding:6px 12px}
+  .calc-in{width:70px;border:none;background:transparent;font-size:17px;font-weight:600;color:#5A3F56;text-align:right;font-family:inherit;outline:none}
+  .calc-unit{font-size:13px;color:#9a8290}
+  .calc-in-s{width:100%;text-align:center;background:#FBF6EF;border:1px solid rgba(154,111,130,.22);border-radius:10px;padding:8px 4px}
+  .calc-ratio{display:flex;align-items:flex-end;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)}
+  .calc-ratio-col{flex:1;display:flex;flex-direction:column;gap:5px;align-items:center}
+  .calc-ratio-lb{font-size:11px;color:#8a6f7a;text-transform:uppercase;letter-spacing:.05em}
+  .calc-ratio-x{font-size:20px;color:#c9a3b3;padding-bottom:8px}
+  .calc-res{margin-top:16px;background:linear-gradient(150deg,#9A6F82,#7C3E50);color:#fff;border-radius:18px;padding:18px 20px;text-align:center}
+  .calc-res-lb{font-size:12px;opacity:.85;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .calc-res-val{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:700}
+  .calc-res-multi{text-align:left;padding:14px 20px}
+  .calc-res-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:15px}
+  .calc-res-row + .calc-res-row{border-top:1px solid rgba(255,255,255,.16)}
+  .calc-res-row b{font-size:17px}
+  .calc-res-total{margin-top:2px;font-weight:700}
+  .calc-res-inline{display:flex;align-items:center;justify-content:space-between;font-size:15px;padding:14px 18px}
+  .calc-res-inline b{font-size:16px}
+  .calc-hint{color:#8a6f7a;font-size:12.5px;line-height:1.55;margin:14px 4px 0;text-align:center}
+  .calc-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(154,111,130,.25);outline:none}
+  .calc-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#7C3E50;cursor:pointer;box-shadow:0 2px 6px rgba(124,62,80,.4)}
+  .calc-range::-moz-range-thumb{width:24px;height:24px;border:none;border-radius:50%;background:#7C3E50;cursor:pointer}
+
+  .smk-ab{margin:0 18px 6px}
+  .smk-ab-card{cursor:pointer;background:linear-gradient(150deg,#9A6F82,#7C3E50);color:#fff;border-radius:22px;padding:16px 18px;box-shadow:0 14px 30px -16px rgba(124,62,80,.6)}
+  .smk-ab-top{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .smk-ab-dot{width:9px;height:9px;border-radius:50%;background:#8FD19E;animation:smkPulse 1.8s infinite}
+  @keyframes smkPulse{0%{box-shadow:0 0 0 0 rgba(143,209,158,.6)}70%{box-shadow:0 0 0 8px rgba(143,209,158,0)}100%{box-shadow:0 0 0 0 rgba(143,209,158,0)}}
+  .smk-ab-name{flex:1;font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:600}
+  .smk-ab-x{background:rgba(255,255,255,.18);border:none;color:#fff;font-family:inherit;font-size:12px;padding:5px 11px;border-radius:999px;cursor:pointer}
+  .smk-ab-now{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);border-radius:14px;padding:11px 13px}
+  .smk-ab-ic{font-size:22px}
+  .smk-ab-now small{display:block;font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+  .smk-ab-now b{font-size:16px}
+  .smk-ab-next{display:flex;justify-content:space-between;align-items:center;margin-top:9px;font-size:13.5px;opacity:.92}
+  .smk-ab-next b{font-size:14px}
 </style>
 </head>
 <body class="locked">
@@ -364,6 +419,8 @@
         <div class="lock-badge"><svg class="lk"><use href="#i-lock"/></svg><svg class="cr"><use href="#i-crown"/></svg></div>Tagebuch öffnen <svg><use href="#i-arrow"/></svg></button>
       </div>
     </div>
+
+    <div id="smkActiveBake" class="smk-ab" style="display:none"></div>
 
     <div class="headline rv d1">
       <h1>Dein Backstuben-Zugang</h1> <span class="tag">Premium</span>
@@ -3302,6 +3359,13 @@ function renderTimeline(r){
   ensureTimers(r.steps);
   const eat=r.steps.find(s=&gt;s.id==='eat');
   $('pSub').innerHTML=eat?('Dein Brot ist fertig am &lt;b&gt;'+dShort(eat.time)+'&lt;/b&gt; um &lt;b&gt;'+clk(eat.time)+'&lt;/b&gt;.'):'';
+  window.smkStartBake=function(){ if(!window.__smkPlan){return;} try{localStorage.setItem('smk-active-bake',JSON.stringify({name:window.__smkPlan.name,started:Date.now(),steps:window.__smkPlan.steps}));}catch(e){} smkSyncStartBtn(); };
+  window.smkStopBake=function(){ try{localStorage.removeItem('smk-active-bake');}catch(e){} smkSyncStartBtn(); };
+  window.smkToggleBake=function(){ var a=false; try{a=!!localStorage.getItem('smk-active-bake');}catch(e){} if(a){smkStopBake();}else{smkStartBake();} };
+  window.smkSyncStartBtn=function(){ var b=document.getElementById('smkStartBtn'); if(!b){return;} var a=false; try{a=!!localStorage.getItem('smk-active-bake');}catch(e){} if(a){ b.textContent='✓ Backvorgang laeuft – auf der Startseite'; b.style.background='#4A7C59'; } else { b.textContent='Diesen Backvorgang starten'; b.style.background='linear-gradient(135deg,#A04A60,#863E52)'; } };
+  window.__smkPlan={name:(typeof FLOUR!=='undefined'&amp;&amp;FLOUR[state.flourKey]?FLOUR[state.flourKey].label:(state.flourKey==='Mischbrot'?'Mischbrot':'Backvorgang')),steps:r.steps.map(function(s){return {id:s.id,icon:(s.icon||''),title:(s.title||''),time:(s.time?s.time.getTime():null)};})};
+  if(!document.getElementById('smkStartBtn')){ var _pb=document.getElementById('pSub'); if(_pb){ _pb.insertAdjacentHTML('afterend','&lt;button id=&quot;smkStartBtn&quot; type=&quot;button&quot; onclick=&quot;smkToggleBake()&quot; style=&quot;width:100%;margin:14px 0 4px;padding:14px;border:none;border-radius:16px;color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;background:linear-gradient(135deg,#A04A60,#863E52);&quot;&gt;Diesen Backvorgang starten&lt;/button&gt;'); } }
+  try{smkSyncStartBtn();}catch(e){}
   $('timeline').innerHTML=r.steps.map(s=&gt;{
     const tips=(s.tips||[]).filter(Boolean).map(t=&gt;'&lt;li&gt;'+lillyText(t)+'&lt;/li&gt;').join('');
     const dur=s.duration?(' · '+s.duration):'';
@@ -3409,11 +3473,134 @@ renderAll();
       <div class="area-ic"><svg><use href="#i-scale"/></svg></div>
       <h2 style="margin-top:0">Rechner</h2>
       <p class="desc" style="margin:12px auto 0;max-width:32ch">Deine Werkzeuge für jeden Teig — Hydration, Stückgare und Mix-ins.</p>
-      <div class="area-feats"><div class="area-feat"><div class="fic">💧</div><div class="ftx"><b>Hydrations-Rechner</b>: Wassermenge exakt bestimmen</div></div><div class="area-feat"><div class="fic">⏱️</div><div class="ftx"><b>Stückgare-Rechner</b>: den richtigen Zeitpunkt finden</div></div><div class="area-feat"><div class="fic">🌰</div><div class="ftx"><b>Mix-ins-Planer</b>: Nüsse, Körner &amp; Co. richtig dosieren</div></div></div>
-      <a class="bw-open" style="margin-top:22px" href="#" onclick="go('brotwerkstatt');return false;">In der Brotwerkstatt öffnen</a>
+      <div class="rech-list">
+        <button class="rech-item" type="button" onclick="goRechner('hydration')">
+          <span class="rech-ic">💧</span>
+          <span class="rech-tx"><b>Hydrations-Rechner</b><small>Wassermenge exakt bestimmen</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="goRechner('stueckgare')">
+          <span class="rech-ic">⏱️</span>
+          <span class="rech-tx"><b>Stückgare-Rechner</b><small>Den richtigen Zeitpunkt finden</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="goRechner('inclusions')">
+          <span class="rech-ic">🌰</span>
+          <span class="rech-tx"><b>Mix-ins-Planer</b><small>Nüsse, Körner &amp; Co. richtig dosieren</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="goRechner('brotbackplaner')">
+          <span class="rech-ic">📅</span>
+          <span class="rech-tx"><b>Brotbackplaner</b><small>Deinen Backtag Schritt für Schritt planen</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="go('swcalc')">
+          <span class="rech-ic">🌡️</span>
+          <span class="rech-tx"><b>Schüttwasser-Rechner</b><small>Wassertemperatur bestimmen</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="go('frcalc')">
+          <span class="rech-ic">🥣</span>
+          <span class="rech-tx"><b>Feed-Ratio-Rechner</b><small>Fütterungsmengen aus Verhältnis</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+        <button class="rech-item" type="button" onclick="go('hecalc')">
+          <span class="rech-ic">🔄</span>
+          <span class="rech-tx"><b>Hefe &harr; Sauerteig</b><small>Zwischen Triebmitteln umrechnen</small></span>
+          <span class="rech-ar">&rsaquo;</span>
+        </button>
+      </div>
+      
       <p class="bw-note">Die Rechner sind Teil der Brotwerkstatt.</p>
     </div>
   </div></div>
+
+  <div class="view" id="view-swcalc"><div class="inner">
+    <button class="back" onclick="go('rechner')">← Zurück</button>
+    <div class="calc-wrap">
+      <div class="calc-intro"><div class="calc-emoji">🌡️</div><h2 class="calc-h1">Schüttwasser-Rechner</h2><p class="calc-sub">Welche Wassertemperatur brauchst du, damit dein Teig die Zieltemperatur trifft?</p></div>
+      <div class="calc-card">
+        <label class="calc-lb">Zielteig-Temperatur<span class="calc-inwrap"><input id="sw-ziel" class="calc-in" type="number" inputmode="decimal" value="26" step="0.5"><span class="calc-unit">°C</span></span></label>
+        <label class="calc-lb">Mehltemperatur<span class="calc-inwrap"><input id="sw-mehl" class="calc-in" type="number" inputmode="decimal" value="20" step="0.5"><span class="calc-unit">°C</span></span></label>
+      </div>
+      <div class="calc-res"><div class="calc-res-lb">Deine Wassertemperatur</div><div class="calc-res-val"><span id="sw-out">32</span> °C</div></div>
+      <p class="calc-hint">Faustformel: 2 × Zielteig-Temperatur − Mehltemperatur. Ist deine Küche sehr warm, nimm lieber etwas kälteres Wasser.</p>
+    </div>
+  </div></div>
+
+  <div class="view" id="view-frcalc"><div class="inner">
+    <button class="back" onclick="go('rechner')">← Zurück</button>
+    <div class="calc-wrap">
+      <div class="calc-intro"><div class="calc-emoji">🥣</div><h2 class="calc-h1">Feed-Ratio-Rechner</h2><p class="calc-sub">Berechne deine Fütterungsmengen aus einem Verhältnis (z.B. 1:5:5).</p></div>
+      <div class="calc-card">
+        <label class="calc-lb">Anstellgut-Menge<span class="calc-inwrap"><input id="fr-start" class="calc-in" type="number" inputmode="decimal" value="20" step="1"><span class="calc-unit">g</span></span></label>
+        <div class="calc-ratio">
+          <div class="calc-ratio-col"><span class="calc-ratio-lb">Anstellgut</span><input id="fr-a" class="calc-in calc-in-s" type="number" inputmode="decimal" value="1" step="1"></div>
+          <span class="calc-ratio-x">:</span>
+          <div class="calc-ratio-col"><span class="calc-ratio-lb">Mehl</span><input id="fr-m" class="calc-in calc-in-s" type="number" inputmode="decimal" value="5" step="1"></div>
+          <span class="calc-ratio-x">:</span>
+          <div class="calc-ratio-col"><span class="calc-ratio-lb">Wasser</span><input id="fr-w" class="calc-in calc-in-s" type="number" inputmode="decimal" value="5" step="1"></div>
+        </div>
+        <label class="calc-lb" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)">Raumtemperatur<span class="calc-inwrap"><input id="fr-temp" class="calc-in" type="number" inputmode="decimal" value="24" step="0.5"><span class="calc-unit">°C</span></span></label>
+        <label class="calc-lb" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)">Raumtemperatur<span class="calc-inwrap"><input id="fr-temp" class="calc-in" type="number" inputmode="decimal" value="24" step="0.5"><span class="calc-unit">°C</span></span></label>
+      </div>
+      <div class="calc-res calc-res-multi">
+        <div class="calc-res-row"><span>Anstellgut</span><b><span id="fr-o-start">20</span> g</b></div>
+        <div class="calc-res-row"><span>Mehl</span><b><span id="fr-o-mehl">100</span> g</b></div>
+        <div class="calc-res-row"><span>Wasser</span><b><span id="fr-o-wasser">100</span> g</b></div>
+        <div class="calc-res-row calc-res-total"><span>Gesamt</span><b><span id="fr-o-total">220</span> g</b></div>
+      </div>
+      <div class="calc-res calc-res-inline" style="margin-top:12px"><span>Peak (geschätzt)</span><b>ca. <span id="fr-peak">6–8</span> Std.</b></div>
+      <div class="calc-res calc-res-inline" style="margin-top:12px;background:linear-gradient(150deg,#B9926A,#9A6F82)"><span>Peak voraussichtlich</span><b>in ca. <span id="fr-peak">6–8</span> Std.</b></div>
+      <p class="calc-hint">Ca. um <span id="fr-peak-clock">…</span> Uhr (ab jetzt). Schätzung nach Verhältnis &amp; Temperatur — der Schwimmtest bleibt der Beweis.</p>
+      <p class="calc-hint">Beispiel 1:5:5: auf 1 Teil Anstellgut kommen 5 Teile Mehl und 5 Teile Wasser. Mehr Mehl/Wasser = langsamere, mildere Führung.</p>
+    </div>
+  </div></div>
+
+  <div class="view" id="view-hecalc"><div class="inner">
+    <button class="back" onclick="go('rechner')">← Zurück</button>
+    <div class="calc-wrap">
+      <div class="calc-intro"><div class="calc-emoji">🔄</div><h2 class="calc-h1">Hefe &harr; Sauerteig</h2><p class="calc-sub">Zwischen Triebmitteln umrechnen — als Orientierung.</p></div>
+      <div class="calc-card">
+        <div class="calc-section-title">Frischhefe &harr; Trockenhefe</div>
+        <label class="calc-lb">Frischhefe<span class="calc-inwrap"><input id="he-fresh" class="calc-in" type="number" inputmode="decimal" value="21" step="1"><span class="calc-unit">g</span></span></label>
+        <div class="calc-res calc-res-inline"><span>entspricht</span><b><span id="he-dry">7</span> g Trockenhefe</b></div>
+        <p class="calc-hint" style="margin-top:8px">Regel: Trockenhefe = Frischhefe ÷ 3. Umgekehrt × 3.</p>
+      </div>
+      <div class="calc-card" style="margin-top:14px">
+        <div class="calc-section-title">Rezept auf Sauerteig umstellen</div>
+        <label class="calc-lb">Mehlmenge im Rezept<span class="calc-inwrap"><input id="he-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
+        <div class="calc-res calc-res-inline"><span>Aktives Anstellgut</span><b>ca. <span id="he-ag">100</span> g</b></div>
+        <p class="calc-hint" style="margin-top:8px">Faustregel: ca. 20 % der Mehlmenge als aktives Anstellgut (100 % Hydration). Reduziere im Rezept Mehl und Wasser um je die Hälfte des Anstellguts. Plane deutlich mehr Zeit ein.</p>
+      </div>
+      <div class="calc-card" style="margin-top:14px">
+        <div class="calc-section-title">Sauerteig + Hefe kombiniert</div>
+        <label class="calc-lb">Mehlmenge<span class="calc-inwrap"><input id="hk-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
+        <label class="calc-lb">Anteil Sauerteig<span class="calc-inwrap"><input id="hk-share" class="calc-in" type="number" inputmode="decimal" value="50" step="5" min="0" max="100"><span class="calc-unit">%</span></span></label>
+        <div class="calc-res calc-res-multi" style="margin-top:14px">
+          <div class="calc-res-row"><span>Anstellgut (aktiv)</span><b><span id="hk-ag">50</span> g</b></div>
+          <div class="calc-res-row"><span>Frischhefe</span><b><span id="hk-fresh">3.8</span> g</b></div>
+          <div class="calc-res-row"><span>oder Trockenhefe</span><b><span id="hk-dry">1.3</span> g</b></div>
+        </div>
+        <p class="calc-hint" style="margin-top:8px">So bekommst du Sauerteig-Aroma mit der Planbarkeit von Hefe. Mehr Sauerteig-Anteil = mehr Aroma & längere Gehzeit, mehr Hefe = schneller & milder.</p>
+      </div>
+      <div class="calc-card" style="margin-top:14px">
+        <div class="calc-section-title">Sauerteig + Hefe kombiniert</div>
+        <label class="calc-lb">Mehlmenge<span class="calc-inwrap"><input id="hc-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(154,111,130,.1)">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#7C3E50;font-weight:600;margin-bottom:8px"><span id="hc-lbl-st">Sauerteig 50%</span><span id="hc-lbl-he">Hefe 50%</span></div>
+          <input id="hc-share" class="calc-range" type="range" min="0" max="100" value="50" step="5">
+        </div>
+        <div class="calc-res calc-res-multi" style="margin-top:14px">
+          <div class="calc-res-row"><span>Aktives Anstellgut</span><b><span id="hc-ag">50</span> g</b></div>
+          <div class="calc-res-row"><span>Frischhefe</span><b><span id="hc-fresh">2</span> g</b></div>
+          <div class="calc-res-row"><span>oder Trockenhefe</span><b><span id="hc-dry">0.7</span> g</b></div>
+        </div>
+        <p class="calc-hint" style="margin-top:10px">Sauerteig bringt Aroma, die Hefe Sicherheit &amp; Planbarkeit. Richtwerte — mehr Hefe = schneller, mehr Sauerteig = mehr Geschmack.</p>
+      </div>
+    </div>
+  </div></div>
+
 
 </div>
 
@@ -3446,6 +3633,29 @@ renderAll();
   var hasPhoto = false;
   var premiumViews = ["starter","rezepte","brotwerkstatt","bibliothek","community","krume"];
 
+
+  function smkEsc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function smkClearActive(e){ if(e&&e.stopPropagation){e.stopPropagation();} try{localStorage.removeItem('smk-active-bake');}catch(x){} smkRenderActiveBake(); }
+  function smkRenderActiveBake(){
+    var el=document.getElementById('smkActiveBake'); if(!el){return;}
+    var raw=null; try{raw=localStorage.getItem('smk-active-bake');}catch(e){}
+    if(!raw){ el.style.display='none'; el.innerHTML=''; return; }
+    var data; try{data=JSON.parse(raw);}catch(e){ el.style.display='none'; return; }
+    var steps=(data.steps||[]).filter(function(s){return s.time;});
+    if(!steps.length){ el.style.display='none'; return; }
+    steps.sort(function(a,b){return a.time-b.time;});
+    var now=Date.now(), cur=null, next=null;
+    for(var i=0;i<steps.length;i++){ if(steps[i].time<=now){ cur=steps[i]; } else { next=steps[i]; break; } }
+    var done = steps[steps.length-1].time<=now;
+    var html='<div class="smk-ab-top"><span class="smk-ab-dot"></span><span class="smk-ab-name">'+smkEsc(data.name||'Backvorgang')+'</span><button class="smk-ab-x" type="button" onclick="smkClearActive(event)">Fertig</button></div>';
+    var head=cur||next, headLabel=cur?'Jetzt':'Startet gleich';
+    if(head){ html+='<div class="smk-ab-now"><span class="smk-ab-ic">'+(head.icon||'\uD83C\uDF5E')+'</span><div><small>'+headLabel+'</small><b>'+smkEsc(head.title)+'</b></div></div>'; }
+    if(next){ var mins=Math.round((next.time-now)/60000); var when= mins<=0?'jetzt':(mins<60?('in '+mins+' Min'):('in '+Math.floor(mins/60)+' Std '+(mins%60)+' Min')); html+='<div class="smk-ab-next"><span>Naechster: '+smkEsc(next.title)+'</span><b>'+when+'</b></div>'; }
+    else if(done){ html+='<div class="smk-ab-next"><span>Alle Schritte erledigt</span><b>\uD83C\uDF89</b></div>'; }
+    el.innerHTML='<div class="smk-ab-card" onclick="goRechner(\'brotbackplaner\')">'+html+'</div>';
+    el.style.display='block';
+  }
+  try{ smkRenderActiveBake(); setInterval(smkRenderActiveBake, 60000); }catch(e){}
   function go(name){
     if(premiumViews.indexOf(name)!==-1 && !unlocked){ openModal(); return; }
     if(name==='fehlerfinder'){ setTimeout(ffLoad, 20); }
@@ -3462,6 +3672,7 @@ renderAll();
     for(var j=0;j<nb.length;j++) nb[j].classList.remove("on");
     var b=document.getElementById("nav-"+name); if(b) b.classList.add("on");
     window.scrollTo(0,0);
+    if(name==='home'){ try{ smkRenderActiveBake(); }catch(e){} }
   }
   function openModal(){document.getElementById("overlay").classList.add("open");document.getElementById("codeMsg").textContent="";document.getElementById("codeInput").value="";}
   function closeModal(){document.getElementById("overlay").classList.remove("open");}
@@ -3487,7 +3698,7 @@ renderAll();
   function redeem(){
     var v=document.getElementById("codeInput").value.trim().toUpperCase();
     var m=document.getElementById("codeMsg");
-    if(v===DEMO_CODE){unlocked=true;document.body.classList.remove("locked");try{localStorage.setItem("smk-unlocked","1");}catch(e){}try{document.cookie="smk_unlocked=1; max-age=31536000; path=/; SameSite=Lax";}catch(e){}syncProfilStatus();m.className="msg ok";m.textContent="Willkommen in deiner Backstube!";setTimeout(closeModal,1200);}
+    if(v===DEMO_CODE){unlocked=true;document.body.classList.remove("locked");try{localStorage.setItem("smk-unlocked","1");}catch(e){}try{document.cookie="smk_unlocked=1; max-age=31536000; path=/; SameSite=Lax";}catch(e){}smkPrefsSet();syncProfilStatus();m.className="msg ok";m.textContent="Willkommen in deiner Backstube!";setTimeout(closeModal,1200);}
     else{m.className="msg err";m.textContent="Dieser Code ist leider nicht gültig.";}
   }
   function fakeBuy(){var m=document.getElementById("codeMsg");m.className="msg ok";m.textContent="Hier startet später der Kauf (Stripe oder In-App-Kauf).";}
@@ -3657,6 +3868,10 @@ renderAll();
       if(tpl){ host.appendChild(tpl.content.cloneNode(true)); host.dataset.loaded="1"; }
     }
   }
+  function goRechner(tool){
+    go('brotwerkstatt');
+    setTimeout(function(){ try{ bwTab(tool); }catch(e){} }, 90);
+  }
   function bwTab(name){
     var panels=document.querySelectorAll('.bw-panel');
     for(var i=0;i<panels.length;i++) panels[i].classList.toggle('on', panels[i].id==='bw-'+name);
@@ -3687,16 +3902,37 @@ renderAll();
   }
 
 
+  function smkPrefsSet(){
+    try{ if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Preferences){ window.Capacitor.Plugins.Preferences.set({key:"smk-unlocked",value:"1"}); } }catch(e){}
+  }
+  function smkPrefsRemove(){
+    try{ if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Preferences){ window.Capacitor.Plugins.Preferences.remove({key:"smk-unlocked"}); } }catch(e){}
+  }
   function smkHasCookie(){ try{ return document.cookie.indexOf("smk_unlocked=1")!==-1; }catch(e){ return false; } }
+  function smkUrlCode(){
+    try{
+      var p=new URLSearchParams(window.location.search);
+      var c=p.get("code")||p.get("c");
+      return c && c.toUpperCase()===DEMO_CODE;
+    }catch(e){ return false; }
+  }
   (function initUnlock(){
     try{
       var stored=false;
       try{ stored = localStorage.getItem("smk-unlocked")==="1"; }catch(e){}
-      if(stored || smkHasCookie()){
+      if(stored || smkHasCookie() || smkUrlCode()){
         unlocked=true;
         document.body.classList.remove("locked");
         syncProfilStatus();
       }
+      // Nativer Speicher (zuverlaessig in der App) - laedt asynchron nach
+      try{
+        if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Preferences){
+          window.Capacitor.Plugins.Preferences.get({key:"smk-unlocked"}).then(function(r){
+            if(r&&r.value==="1"){ unlocked=true; document.body.classList.remove("locked"); try{syncProfilStatus();}catch(e){} }
+          }).catch(function(){});
+        }
+      }catch(e){}
     }catch(e){}
   })();
 
@@ -3706,9 +3942,59 @@ renderAll();
     document.body.classList.add("locked");
     try{ localStorage.removeItem("smk-unlocked"); }catch(e){}
     try{ document.cookie="smk_unlocked=; max-age=0; path=/"; }catch(e){}
+    smkPrefsRemove();
     syncProfilStatus();
   }
 
+
+  (function(){
+    function num(id){ var e=document.getElementById(id); return e? parseFloat(e.value) : NaN; }
+    function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+    function r0(x){ return Math.round(x); }
+    function calcSW(){ var z=num('sw-ziel'),m=num('sw-mehl'); if(isNaN(z)||isNaN(m))return; var w=2*z-m; if(w<0)w=0; if(w>60)w=60; set('sw-out', Math.round(w*2)/2); }
+    function calcFR(){ var s=num('fr-start'),a=num('fr-a'),m=num('fr-m'),w=num('fr-w'); if(isNaN(s)||isNaN(a)||a<=0)return; var mehl=s*(m/a),wasser=s*(w/a); set('fr-o-start',r0(s)); set('fr-o-mehl',r0(mehl)); set('fr-o-wasser',r0(wasser)); set('fr-o-total',r0(s+mehl+wasser)); var t=num('fr-temp'); if(!isNaN(t)){ var mp=m/a; var base=2.5+0.85*mp; var factor=Math.pow(2,(24-t)/8); var pk=base*factor; var lo=Math.max(1,Math.round(pk*0.85)); var hi=Math.round(pk*1.15); if(hi<=lo)hi=lo+1; set('fr-peak', lo+'\u2013'+hi); } }
+    function calcHE(){ var f=num('he-fresh'); if(!isNaN(f)) set('he-dry', Math.round((f/3)*10)/10); var me=num('he-mehl'); if(!isNaN(me)) set('he-ag', r0(me*0.2)); var km=num('hk-mehl'),ks=num('hk-share'); if(!isNaN(km)&&!isNaN(ks)){ if(ks<0)ks=0; if(ks>100)ks=100; var ag=0.20*km*(ks/100); var fr=0.015*km*(1-ks/100); set('hk-ag', r0(ag)); set('hk-fresh', Math.round(fr*10)/10); set('hk-dry', Math.round((fr/3)*10)/10); } }
+    ['sw-ziel','sw-mehl'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcSW); });
+    ['fr-start','fr-a','fr-m','fr-w','fr-temp'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcFR); });
+    ['he-fresh','he-mehl','hk-mehl','hk-share'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcHE); });
+    calcSW(); calcFR(); calcHE();
+  })();
+
+  (function(){
+    function num(id){ var e=document.getElementById(id); return e? parseFloat(e.value) : NaN; }
+    function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+    function pad(n){ return ('0'+n).slice(-2); }
+    function calcPeak(){
+      var a=num('fr-a'), m=num('fr-m'), t=num('fr-temp');
+      if(isNaN(a)||a<=0||isNaN(m)||isNaN(t)) return;
+      var r=m/a;
+      var base=3.5+0.7*r;
+      var factor=Math.pow(2,(24-t)/8);
+      var peak=base*factor;
+      var lo=Math.max(1,Math.round(peak*0.85)), hi=Math.round(peak*1.15);
+      if(hi<=lo) hi=lo+1;
+      set('fr-peak', lo+'–'+hi);
+      try{
+        var now=new Date();
+        var d1=new Date(now.getTime()+lo*3600000), d2=new Date(now.getTime()+hi*3600000);
+        set('fr-peak-clock', pad(d1.getHours())+':'+pad(d1.getMinutes())+'–'+pad(d2.getHours())+':'+pad(d2.getMinutes()));
+      }catch(e){}
+    }
+    function calcCombo(){
+      var flour=num('hc-mehl'), share=num('hc-share');
+      if(isNaN(flour)||isNaN(share)) return;
+      var s=share/100;
+      set('hc-ag', Math.round(0.20*flour*s));
+      var fresh=0.008*flour*(1-s);
+      set('hc-fresh', Math.round(fresh*10)/10);
+      set('hc-dry', Math.round((fresh/3)*10)/10);
+      set('hc-lbl-st', 'Sauerteig '+share+'%');
+      set('hc-lbl-he', 'Hefe '+(100-share)+'%');
+    }
+    ['fr-a','fr-m','fr-temp'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcPeak); });
+    ['hc-mehl','hc-share'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcCombo); });
+    calcPeak(); calcCombo();
+  })();
 </script>
 </body>
 </html>

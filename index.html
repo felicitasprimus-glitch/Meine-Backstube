@@ -540,8 +540,8 @@
   <div class="view" id="view-rezepte"><div class="inner">
     <div class="lib-top">
       <button class="back" onclick="go('home')">← Zurück</button>
-      <span class="lib-title">Rezeptsammlung</span>
-      <a class="lib-full" href="https://stonewareapp.vercel.app/" target="_blank" rel="noopener">Vollbild</a>
+      <span class="lib-title">Rezepte</span>
+      <a class="lib-full" href="https://starter.sauermachtkrustig.de/rezepte" target="_blank" rel="noopener">Vollbild</a>
     </div>
     <div class="lib-host" id="host-rezepte"></div>
   </div></div>
@@ -5029,6 +5029,27 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
     go('brotwerkstatt');
     setTimeout(function(){ try{ bwTab(tool); }catch(e){} }, 90);
   }
+
+  // ===== Bruecke Rezept -> Brotbackplaner =====
+  function smkPrefillPlanner(mehl, hydration, tries){
+    var host=document.getElementById("host-brotbackplaner");
+    var ifr=host&&host.querySelector("iframe");
+    var doc=null; try{ doc=ifr&&(ifr.contentDocument||(ifr.contentWindow&&ifr.contentWindow.document)); }catch(e){}
+    var rMehl=doc&&doc.getElementById("rMehl");
+    if(!rMehl){ if(tries<50){ setTimeout(function(){ smkPrefillPlanner(mehl,hydration,tries+1); }, 150); } return; }
+    try{
+      if(mehl){ rMehl.value=mehl; rMehl.dispatchEvent(new Event("change",{bubbles:true})); }
+      if(hydration&&mehl){ var rW=doc.getElementById("rWater"); if(rW){ rW.value=Math.round(mehl*hydration/100); rW.dispatchEvent(new Event("input",{bubbles:true})); } }
+    }catch(e){}
+  }
+  window.addEventListener("message", function(e){
+    try{
+      if(e.origin!=="https://starter.sauermachtkrustig.de") return;
+      var d=e.data; if(!d||d.type!=="smk-backplan") return;
+      goRechner("brotbackplaner");
+      smkPrefillPlanner(d.mehl, d.hydration, 0);
+    }catch(x){}
+  });
   function bwTab(name){
     var panels=document.querySelectorAll('.bw-panel');
     for(var i=0;i<panels.length;i++) panels[i].classList.toggle('on', panels[i].id==='bw-'+name);
@@ -5045,7 +5066,7 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
   function rzLoad(){
     var h=document.getElementById("host-rezepte");
     if(h && !h.dataset.loaded){
-      h.innerHTML='<iframe title="Rezeptsammlung" src="https://stonewareapp.vercel.app/" allow="clipboard-write; camera"></iframe>';
+      h.innerHTML='<iframe title="Rezepte" src="https://starter.sauermachtkrustig.de/rezepte" allow="clipboard-write; camera"></iframe>';
       h.dataset.loaded="1";
     }
   }

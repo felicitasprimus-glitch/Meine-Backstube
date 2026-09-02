@@ -5065,7 +5065,9 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
   }
   window.addEventListener("message", function(e){
     try{
-      var d=e.data; if(!d||d.type!=="smk-backplan") return;
+      var d=e.data;
+      if(d && typeof d==="object" && d.type){ smkBackplanToast("Nachricht empfangen: " + d.type, "#5A3D54"); }
+      if(!d||d.type!=="smk-backplan") return;
       if(e.origin && e.origin.indexOf("sauermachtkrustig")===-1){ smkBackplanToast("Nachricht abgelehnt (Adresse: "+e.origin+")", "#B5793B"); return; }
       smkBackplanToast("Backplan erhalten: "+d.mehl+" g – Planer wird geöffnet …");
       goRechner("brotbackplaner");

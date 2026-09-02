@@ -5063,9 +5063,18 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
     el.style.background=col||"#4A7C59"; el.textContent=txt; el.style.display="block";
     clearTimeout(window.__smkToastT); window.__smkToastT=setTimeout(function(){ el.style.display="none"; }, 5000);
   }
+  (function(){
+    var m=document.createElement("div"); m.id="smkBridgeMarker";
+    m.style.cssText="position:fixed;left:6px;bottom:6px;z-index:999999;background:rgba(90,61,84,.9);color:#fff;font-size:10px;padding:3px 8px;border-radius:8px;font-family:sans-serif;pointer-events:none";
+    m.textContent="Bruecke v2 · 0 Nachr.";
+    function add(){ if(document.body && !document.getElementById("smkBridgeMarker")) document.body.appendChild(m); }
+    add(); document.addEventListener("DOMContentLoaded", add); setTimeout(add, 1500);
+    window.__smkMsg=0; window.__smkTick=function(t){ window.__smkMsg++; try{ m.textContent="Bruecke v2 · "+window.__smkMsg+" Nachr."+(t?(" ("+t+")"):""); }catch(e){} };
+  })();
   window.addEventListener("message", function(e){
     try{
       var d=e.data;
+      try{ window.__smkTick(d && typeof d==="object" ? (d.type||"?") : typeof d); }catch(x){}
       if(d && typeof d==="object" && d.type){ smkBackplanToast("Nachricht empfangen: " + d.type, "#5A3D54"); }
       if(!d||d.type!=="smk-backplan") return;
       if(e.origin && e.origin.indexOf("sauermachtkrustig")===-1){ smkBackplanToast("Nachricht abgelehnt (Adresse: "+e.origin+")", "#B5793B"); return; }

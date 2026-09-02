@@ -5065,11 +5065,13 @@ ${[3,7,9,10,11].includes(selectedProblem.id) ? `
   }
   function smkHandleBpHash(){
     try{
-      var m = (location.hash||"").match(/#bp=([\d.]*),([\d.]*)/);
-      if(!m) return;
-      var mehl = parseFloat(m[1]); var hyd = m[2] ? parseFloat(m[2]) : null;
-      try{ history.replaceState(null, "", location.pathname + location.search); }catch(e){ try{ location.hash=""; }catch(e2){} }
-      if(!isNaN(mehl)){ window.__smkPendingBp={mehl:mehl, hyd:hyd}; window.__smkPrefilled=false; smkOpenBp(); }
+      var mehl=null, hyd=null;
+      var qm = (location.search||"").match(/[?&]bp=([\d.]*)-([\d.]*)/);
+      if(qm){ mehl=parseFloat(qm[1]); hyd=qm[2]?parseFloat(qm[2]):null; }
+      else { var hm=(location.hash||"").match(/#bp=([\d.]*),([\d.]*)/); if(hm){ mehl=parseFloat(hm[1]); hyd=hm[2]?parseFloat(hm[2]):null; } }
+      if(mehl===null || isNaN(mehl)) return;
+      try{ history.replaceState(null, "", location.pathname); }catch(e){}
+      window.__smkPendingBp={mehl:mehl, hyd:hyd}; window.__smkPrefilled=false; smkOpenBp();
     }catch(e){}
   }
   window.addEventListener("hashchange", smkHandleBpHash);
